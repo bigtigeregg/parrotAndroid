@@ -76,7 +76,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                attemptLogin();
+                goToParrotMain();
+               // attemptLogin();
             }
         });
 
@@ -102,9 +103,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         startActivity(registerAc);
     }
 
-    private void goToMainPage(){
-        Intent mainActivity = new Intent(this, MainActivity.class);
-        startActivity(mainActivity);
+    private void goToParrotMain(){
+        Intent parrotMain = new Intent(this, parrotMain.class);
+        startActivity(parrotMain);
     }
 
     /**
@@ -116,6 +117,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         if (mAuthTask != null) {
             return;
         }
+
 
         // Reset errors.
         mEmailView.setError(null);
@@ -141,6 +143,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
 
 
+
 //            mEmailView.setError(getString(R.string.error_field_required));
 //            focusView = mEmailView;
 //            cancel = true;
@@ -161,6 +164,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mAuthTask = new UserLoginTask(email, password);
             mAuthTask.execute((Void) null);
         }
+
     }
 
     private boolean isEmailValid(String email) {
